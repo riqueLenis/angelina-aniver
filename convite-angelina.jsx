@@ -332,21 +332,6 @@ export default function ConviteAngelina() {
 
         <div style={s.divider} />
 
-        {/* RSVP */}
-        <p style={s.rsvpText}>Confirme sua presença pelo WhatsApp:</p>
-        <button className="whatsapp-btn" onClick={handleWhatsApp}>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="white"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M20.4 3.6A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0012 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7.9 1-3.6-.2-.4A10 10 0 012 12C2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1s-.5-.1-.7.1c-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.6.1-.6c0-.2-.1-.4-.2-.6L8.3 8c-.3-.7-.6-.7-.8-.7H7c-.2 0-.6.1-.9.4C5.8 8 5 8.8 5 10.3s1.1 3 1.2 3.2c.2.2 2.1 3.2 5 4.5.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4l-.3-.3z" />
-          </svg>
-          Confirmar Presença 🎉
-        </button>
-
         {/* Bottom pearls */}
         <div style={{ ...s.pearlTop, marginTop: 18, marginBottom: 0 }}>
           {["⭐", "🐚", "🌊", "🐠", "🌊", "🐚", "⭐"].map((e, i) => (
