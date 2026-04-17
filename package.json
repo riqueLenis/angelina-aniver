@@ -1,0 +1,31 @@
+{
+  "name": "angel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Convite de aniversario da Angelina",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riqueLenis/angelina-aniver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riqueLenis/angelina-aniver/issues"
+  },
+  "homepage": "https://github.com/riqueLenis/angelina-aniver#readme",
+  "dependencies": {
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.8"
+  }
+}

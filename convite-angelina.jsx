@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 const WHATSAPP_NUMBER = "5567963320257";
 const WHATSAPP_MSG = encodeURIComponent(
-  "Olá! Confirmo minha presença com muito carinho no aniversário de 4 anos da Angelina! Mal posso esperar para celebrar esse dia tão especial com vocês!"
+  "Olá! Confirmo minha presença com muito carinho no aniversário de 4 anos da Angelina! Mal posso esperar para celebrar esse dia tão especial com vocês!",
 );
 
 function useMemo2(fn, deps) {
@@ -20,7 +20,10 @@ export default function ConviteAngelina() {
   useEffect(() => {
     const t1 = setTimeout(() => setVisible(true), 200);
     const t2 = setTimeout(() => setStarPop(true), 900);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
   const bubbles = useMemo2(() =>
@@ -31,7 +34,7 @@ export default function ConviteAngelina() {
       dur: rand(5, 10),
       delay: rand(0, 9),
       startY: rand(30, 90),
-    }))
+    })),
   );
 
   const sparkles = useMemo2(() =>
@@ -42,7 +45,7 @@ export default function ConviteAngelina() {
       size: rand(4, 11),
       dur: rand(1.2, 2.8),
       delay: rand(0, 4),
-    }))
+    })),
   );
 
   const rays = useMemo2(() =>
@@ -52,7 +55,7 @@ export default function ConviteAngelina() {
       dur: rand(3, 6),
       delay: rand(0, 3),
       height: rand(35, 65),
-    }))
+    })),
   );
 
   const stars = useMemo2(() =>
@@ -63,11 +66,14 @@ export default function ConviteAngelina() {
       dur: rand(2, 4),
       delay: rand(0, 3),
       size: rand(10, 18),
-    }))
+    })),
   );
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`, "_blank");
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`,
+      "_blank",
+    );
   };
 
   return (
@@ -75,69 +81,155 @@ export default function ConviteAngelina() {
       <style>{css}</style>
 
       {/* Light rays */}
-      {rays.map(r => (
-        <div key={r.id} className="ray" style={{
-          left: `${r.left}%`,
-          height: `${r.height}%`,
-          animationDuration: `${r.dur}s`,
-          animationDelay: `${r.delay}s`,
-        }} />
+      {rays.map((r) => (
+        <div
+          key={r.id}
+          className="ray"
+          style={{
+            left: `${r.left}%`,
+            height: `${r.height}%`,
+            animationDuration: `${r.dur}s`,
+            animationDelay: `${r.delay}s`,
+          }}
+        />
       ))}
 
       {/* Stars top */}
-      {stars.map(st => (
-        <div key={st.id} className="star-bg" style={{
-          left: `${st.left}%`,
-          top: `${st.top}%`,
-          width: st.size,
-          height: st.size,
-          animationDuration: `${st.dur}s`,
-          animationDelay: `${st.delay}s`,
-        }}>✦</div>
+      {stars.map((st) => (
+        <div
+          key={st.id}
+          className="star-bg"
+          style={{
+            left: `${st.left}%`,
+            top: `${st.top}%`,
+            width: st.size,
+            height: st.size,
+            animationDuration: `${st.dur}s`,
+            animationDelay: `${st.delay}s`,
+          }}
+        >
+          ✦
+        </div>
       ))}
 
       {/* Bubbles */}
-      {bubbles.map(b => (
-        <div key={b.id} className="bubble" style={{
-          left: `${b.left}%`,
-          width: b.size,
-          height: b.size,
-          bottom: `${b.startY}%`,
-          animationDuration: `${b.dur}s`,
-          animationDelay: `${b.delay}s`,
-        }} />
+      {bubbles.map((b) => (
+        <div
+          key={b.id}
+          className="bubble"
+          style={{
+            left: `${b.left}%`,
+            width: b.size,
+            height: b.size,
+            bottom: `${b.startY}%`,
+            animationDuration: `${b.dur}s`,
+            animationDelay: `${b.delay}s`,
+          }}
+        />
       ))}
 
       {/* Sparkles */}
-      {sparkles.map(sp => (
-        <div key={sp.id} className="sparkle-dot" style={{
-          left: `${sp.left}%`,
-          top: `${sp.top}%`,
-          width: sp.size,
-          height: sp.size,
-          animationDuration: `${sp.dur}s`,
-          animationDelay: `${sp.delay}s`,
-        }} />
+      {sparkles.map((sp) => (
+        <div
+          key={sp.id}
+          className="sparkle-dot"
+          style={{
+            left: `${sp.left}%`,
+            top: `${sp.top}%`,
+            width: sp.size,
+            height: sp.size,
+            animationDuration: `${sp.dur}s`,
+            animationDelay: `${sp.delay}s`,
+          }}
+        />
       ))}
 
       {/* Floating fish */}
-      <div className="fish fish1" style={{ top: "18%", animationDuration: "14s", animationDelay: "1s" }}>🐠</div>
-      <div className="fish fish1" style={{ top: "42%", animationDuration: "18s", animationDelay: "7s", fontSize: 20 }}>🐡</div>
-      <div className="fish fish2" style={{ top: "30%", animationDuration: "16s", animationDelay: "4s", fontSize: 22 }}>🐟</div>
-      <div className="fish fish2" style={{ top: "62%", animationDuration: "20s", animationDelay: "11s", fontSize: 16 }}>🐠</div>
-      <div className="fish fish1" style={{ top: "75%", animationDuration: "12s", animationDelay: "2s", fontSize: 18 }}>🐟</div>
-      <div className="jelly" style={{ left: "8%", animationDuration: "8s", animationDelay: "0s" }}>🪼</div>
-      <div className="jelly" style={{ left: "82%", animationDuration: "10s", animationDelay: "3s", fontSize: 20 }}>🪼</div>
+      <div
+        className="fish fish1"
+        style={{ top: "18%", animationDuration: "14s", animationDelay: "1s" }}
+      >
+        🐠
+      </div>
+      <div
+        className="fish fish1"
+        style={{
+          top: "42%",
+          animationDuration: "18s",
+          animationDelay: "7s",
+          fontSize: 20,
+        }}
+      >
+        🐡
+      </div>
+      <div
+        className="fish fish2"
+        style={{
+          top: "30%",
+          animationDuration: "16s",
+          animationDelay: "4s",
+          fontSize: 22,
+        }}
+      >
+        🐟
+      </div>
+      <div
+        className="fish fish2"
+        style={{
+          top: "62%",
+          animationDuration: "20s",
+          animationDelay: "11s",
+          fontSize: 16,
+        }}
+      >
+        🐠
+      </div>
+      <div
+        className="fish fish1"
+        style={{
+          top: "75%",
+          animationDuration: "12s",
+          animationDelay: "2s",
+          fontSize: 18,
+        }}
+      >
+        🐟
+      </div>
+      <div
+        className="jelly"
+        style={{ left: "8%", animationDuration: "8s", animationDelay: "0s" }}
+      >
+        🪼
+      </div>
+      <div
+        className="jelly"
+        style={{
+          left: "82%",
+          animationDuration: "10s",
+          animationDelay: "3s",
+          fontSize: 20,
+        }}
+      >
+        🪼
+      </div>
 
       {/* Seaweed bottom */}
       <div style={s.seaweedRow}>
-        {["🌿","🌱","🌿","🌱","🌿","🌱","🌿","🌱","🌿","🌱","🌿"].map((e, i) => (
-          <span key={i} className="seaweed" style={{
-            fontSize: i % 3 === 0 ? 28 : 22,
-            animationDuration: `${2.5 + (i % 3) * 0.7}s`,
-            animationDelay: `${i * 0.3}s`,
-          }}>{e}</span>
-        ))}
+        {["🌿", "🌱", "🌿", "🌱", "🌿", "🌱", "🌿", "🌱", "🌿", "🌱", "🌿"].map(
+          (e, i) => (
+            <span
+              key={i}
+              className="seaweed"
+              style={{
+                fontSize: i % 3 === 0 ? 28 : 22,
+                animationDuration: `${2.5 + (i % 3) * 0.7}s`,
+                animationDelay: `${i * 0.3}s`,
+              }}
+            >
+              {e}
+            </span>
+          ),
+        )}
       </div>
 
       {/* Coral bottom */}
@@ -153,11 +245,19 @@ export default function ConviteAngelina() {
 
       {/* === INVITATION CARD === */}
       <div className={`card ${visible ? "card-in" : ""}`} style={s.card}>
-
         {/* Pearl border dots */}
         <div style={s.pearlTop}>
-          {["🐚","⭐","🐚","⭐","🐚","⭐","🐚"].map((e, i) => (
-            <span key={i} style={{ fontSize: i === 3 ? 20 : 14, animationDelay: `${i * 0.2}s` }} className="pearl-bounce">{e}</span>
+          {["🐚", "⭐", "🐚", "⭐", "🐚", "⭐", "🐚"].map((e, i) => (
+            <span
+              key={i}
+              style={{
+                fontSize: i === 3 ? 20 : 14,
+                animationDelay: `${i * 0.2}s`,
+              }}
+              className="pearl-bounce"
+            >
+              {e}
+            </span>
           ))}
         </div>
 
@@ -192,7 +292,11 @@ export default function ConviteAngelina() {
           <div style={s.infoCard} className="info-card-anim">
             <span style={s.infoIcon}>📅</span>
             <p style={s.infoLabel}>Data</p>
-            <p style={s.infoValue}>5 de Maio<br />2026</p>
+            <p style={s.infoValue}>
+              5 de Maio
+              <br />
+              2026
+            </p>
           </div>
 
           {/* Time */}
@@ -203,13 +307,24 @@ export default function ConviteAngelina() {
           </div>
 
           {/* Location - full width */}
-          <div style={{ ...s.infoCard, gridColumn: "1 / -1" }} className="info-card-anim">
+          <div
+            style={{ ...s.infoCard, gridColumn: "1 / -1" }}
+            className="info-card-anim"
+          >
             <span style={s.infoIcon}>📍</span>
             <p style={s.infoLabel}>Local</p>
             <p style={{ ...s.infoValue, fontSize: "clamp(11px, 3.2vw, 14px)" }}>
               Rua Espanha, nº 50 — Euro Garden
             </p>
-            <p style={{ ...s.infoValue, color: "#a8f4ff", fontWeight: 600, fontSize: "clamp(12px, 3.5vw, 15px)", marginTop: 2 }}>
+            <p
+              style={{
+                ...s.infoValue,
+                color: "#a8f4ff",
+                fontWeight: 600,
+                fontSize: "clamp(12px, 3.5vw, 15px)",
+                marginTop: 2,
+              }}
+            >
               ✨ Espaço Lê Bistro ✨
             </p>
           </div>
@@ -220,16 +335,28 @@ export default function ConviteAngelina() {
         {/* RSVP */}
         <p style={s.rsvpText}>Confirme sua presença pelo WhatsApp:</p>
         <button className="whatsapp-btn" onClick={handleWhatsApp}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.4 3.6A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0012 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7.9 1-3.6-.2-.4A10 10 0 012 12C2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1s-.5-.1-.7.1c-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.6.1-.6c0-.2-.1-.4-.2-.6L8.3 8c-.3-.7-.6-.7-.8-.7H7c-.2 0-.6.1-.9.4C5.8 8 5 8.8 5 10.3s1.1 3 1.2 3.2c.2.2 2.1 3.2 5 4.5.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4l-.3-.3z"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="white"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M20.4 3.6A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0012 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7.9 1-3.6-.2-.4A10 10 0 012 12C2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1s-.5-.1-.7.1c-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.6.1-.6c0-.2-.1-.4-.2-.6L8.3 8c-.3-.7-.6-.7-.8-.7H7c-.2 0-.6.1-.9.4C5.8 8 5 8.8 5 10.3s1.1 3 1.2 3.2c.2.2 2.1 3.2 5 4.5.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4l-.3-.3z" />
           </svg>
           Confirmar Presença 🎉
         </button>
 
         {/* Bottom pearls */}
         <div style={{ ...s.pearlTop, marginTop: 18, marginBottom: 0 }}>
-          {["⭐","🐚","🌊","🐠","🌊","🐚","⭐"].map((e, i) => (
-            <span key={i} style={{ fontSize: 14, animationDelay: `${i * 0.15}s` }} className="pearl-bounce">{e}</span>
+          {["⭐", "🐚", "🌊", "🐠", "🌊", "🐚", "⭐"].map((e, i) => (
+            <span
+              key={i}
+              style={{ fontSize: 14, animationDelay: `${i * 0.15}s` }}
+              className="pearl-bounce"
+            >
+              {e}
+            </span>
           ))}
         </div>
 
@@ -238,8 +365,16 @@ export default function ConviteAngelina() {
 
       {/* Bottom wave SVG */}
       <div style={s.waveContainer}>
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style={{ width: "200%", height: 80, display: "block" }} className="wave-svg">
-          <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="rgba(6,30,80,0.4)" />
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          style={{ width: "200%", height: 80, display: "block" }}
+          className="wave-svg"
+        >
+          <path
+            d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"
+            fill="rgba(6,30,80,0.4)"
+          />
         </svg>
       </div>
     </div>
@@ -249,7 +384,8 @@ export default function ConviteAngelina() {
 const s = {
   page: {
     minHeight: "100vh",
-    background: "linear-gradient(180deg, #020b1a 0%, #041830 8%, #062060 20%, #083b85 32%, #0b5fa0 45%, #1089bc 58%, #16bcc8 70%, #1ed8c8 80%, #2ef0c0 90%, #56ffd8 100%)",
+    background:
+      "linear-gradient(180deg, #020b1a 0%, #041830 8%, #062060 20%, #083b85 32%, #0b5fa0 45%, #1089bc 58%, #16bcc8 70%, #1ed8c8 80%, #2ef0c0 90%, #56ffd8 100%)",
     position: "relative",
     overflow: "hidden",
     display: "flex",
@@ -262,12 +398,14 @@ const s = {
   card: {
     width: "100%",
     maxWidth: 420,
-    background: "linear-gradient(160deg, rgba(6,30,90,0.75) 0%, rgba(10,60,130,0.65) 40%, rgba(5,20,70,0.8) 100%)",
+    background:
+      "linear-gradient(160deg, rgba(6,30,90,0.75) 0%, rgba(10,60,130,0.65) 40%, rgba(5,20,70,0.8) 100%)",
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
     borderRadius: 28,
     border: "2px solid rgba(100,200,255,0.35)",
-    boxShadow: "0 0 0 1px rgba(255,255,255,0.08), 0 0 60px rgba(30,180,220,0.25), 0 30px 80px rgba(0,0,40,0.5)",
+    boxShadow:
+      "0 0 0 1px rgba(255,255,255,0.08), 0 0 60px rgba(30,180,220,0.25), 0 30px 80px rgba(0,0,40,0.5)",
     padding: "22px 20px 24px",
     position: "relative",
     zIndex: 10,
@@ -288,7 +426,8 @@ const s = {
   divider: {
     width: "100%",
     height: 1.5,
-    background: "linear-gradient(90deg, transparent, rgba(100,220,255,0.5), rgba(255,120,180,0.5), rgba(100,220,255,0.5), transparent)",
+    background:
+      "linear-gradient(90deg, transparent, rgba(100,220,255,0.5), rgba(255,120,180,0.5), rgba(100,220,255,0.5), transparent)",
     margin: "14px 0",
     borderRadius: 1,
   },
